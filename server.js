@@ -18,7 +18,7 @@ if(app.get('env') == 'development') {
             console.log('DB Connected!');
         }
     });
-}else{
+}else if(app.get('env') == 'production'){
     mongoose.connect('mongodb://PJankowski25:Payton15@linus.mongohq.com:10020/ItemTrader');
 }
 
