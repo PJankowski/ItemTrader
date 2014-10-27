@@ -1,0 +1,28 @@
+<div class="login-content">
+    <form class="signup-form" ng-submit="signup()">
+        <div class="signup-header">
+            <h2>Signup</h2>
+        </div>
+        <div class="group half">
+            <input class="full" type="text" ng-model="first" required>
+            <label>First Name</label>
+        </div>
+        <div class="group half alpha">
+            <input class="full" type="text" ng-model="last" required>
+            <label>Last Name</label>
+        </div>
+        <div class="group full">
+            <input type="text" class="full" ng-model="email" required>
+            <label>Email</label>
+        </div>
+        <div class="group half">
+            <input class="full" type="text" ng-model="username" required>
+            <label>Username</label>
+        </div>
+        <div class="group half alpha">
+            <input class="full" type="text" ng-model="password" required>
+            <label>Password</label>
+        </div>
+        <button type="submit" class="full btn">Login</button>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="ItemTrader">
+<base href="/"/>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Item Trader</title>
+    <link rel="stylesheet" href="/stylesheets/screen.css"/>
+    <link rel="stylesheet" href="/stylesheets/postman.css"/>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="container">
+        <a href="/" class="logo">ItemTrader</a>
+        <ul class="nav-right">
+            <li><a href="/items">Items</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+        </ul>
+        <a href="#" class="cart-btn">Your Cart</a>
+    </div>
+</div>
+
+<div ng-view></div>
+
+<script src="javascripts/bower_components/angular/angular.min.js"></script>
+<script src="javascripts/bower_components/angular-route/angular-route.min.js"></script>
+<script src="javascripts/bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="javascripts/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="javascripts/bower_components/angular-postman/js/postman.min.js"></script>
+<script src="app.js"></script>
+<script src="services/User.js"></script>
+<script src="controllers/usersController.js"></script>
+<script src="controllers/profileController.js"></script>
+
+</body>
+</html>
