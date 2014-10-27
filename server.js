@@ -19,7 +19,7 @@ if(app.get('env') == 'development') {
         }
     });
 }else if(app.get('env') == 'production'){
-    mongoose.connect('mongodb://PJankowski25:Payton15@linus.mongohq.com:10020/ItemTrader');
+    mongoose.connect('mongodb://PJankowski25:Payton15@linus.mongohq.com:10035/app31049774');
 }
 
 /*var UserSchema = mongoose.Schema({
