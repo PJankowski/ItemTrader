@@ -1,8 +1,8 @@
 angular.module('ItemTrader')
 .factory('Auth', ['$rootScope', '$location', '$http', '$cookieStore', 'postman',
         function($rootScope, $location, $http, $cookieStore, postman){
-            /*$rootScope.currentUser = $cookieStore.get('user');
-            $cookieStore.remove('user');*/
+            $rootScope.currentUser = $cookieStore.get('user');
+            $cookieStore.remove('user');
             return {
                 signup: function(user){
                     $http.post('/api/user', user)
@@ -29,14 +29,14 @@ angular.module('ItemTrader')
                         })
                 },
                 logout: function(){
-                    $http.post('/api/logout')
+                    $http.get('/api/logout')
                         .success(function(){
                             $rootScope.currentUser = null;
                             postman.success('Logged out!');
                             $location.path('/');
                         })
                         .error(function(){
-                            postman.alert('Error!');
+                            postman.error('Error!');
                             $location.path('/login');
                         });
                 }
