@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session');
 var User = require('./models/User');
+var Item = require('./models/Item');
 
 var app = express();
 
@@ -19,7 +21,7 @@ if(app.get('env') == 'development') {
         }
     });
 }else if(app.get('env') == 'production'){
-    mongoose.connect('mongodb://PJankowski25:Payton15@linus.mongohq.com:10035/app31049774');
+    mongoose.connect('mongodb://PJankowski25:Payton15@linus.mongohq.com:10020/ItemTrader');
 }
 
 /*var UserSchema = mongoose.Schema({
@@ -40,15 +42,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'This is a secret'}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.post('/api/login', function(req, res){
     User.findOne(req.body, function(err, user){
         if(err){
             res.status(500).send(err);
         }else if(user == null){
-            res.status(500).send('That user does not exist!');
+            res.status(500).send(err);
         }else{
+            req.session.user = user;
             res.status(200).send(user);
         }
     });
@@ -60,20 +66,70 @@ app.post('/api/user', function(req, res){
         if(err){
             res.status(500).send(err);
         }else{
+            req.session.user = user;
             res.status(200).send(newuser);
         }
     });
 });
 
-app.get('/api/user/profile/:id',function(req, res){
-    User.findById(req.params.id, function(err, user){
+app.post('/api/items', function(req, res){
+    var item = new Item(req.body);
+    item.save(function(err, newItem){
         if(err){
             res.status(500).send(err);
         }else{
-            res.status(200).send(user);
+            res.status(200).send(newItem);
         }
+    })
+});
 
-    });
+app.get('/api/logout', function(req, res){
+    req.session.user = null;
+    res.status(200);
+});
+
+app.get('/api/user/profile/:id',function(req, res){
+    if(!req.session.user){
+        res.status(500).send({reason: 'Please log in first!'});
+    }else {
+        console.log(req.session.user);
+        User.findById(req.params.id, function (err, user) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(user);
+            }
+
+        });
+    }
+});
+
+app.get('/api/users/items/:id', function(req, res){
+    if(!req.session.user){
+        res.status(500).send({reason: 'Please log in first!'});
+    }else {
+        Item.find({owner: req.params.id}, function (err, items) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(200).send(items);
+            }
+        });
+    }
+});
+
+app.get('/api/items', function(req, res){
+    Item.find({}, function(err, items){
+        if(err){
+            res.status(500).send(items);
+        }else{
+            res.status(200).send(items);
+        }
+    })
+});
+
+app.get('*', function(req, res) {
+    res.redirect('/#' + req.originalUrl);
 });
 
 app.listen(app.get('port'), function(){

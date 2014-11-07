@@ -1,7 +1,7 @@
 angular.module('ItemTrader')
-    .controller('UsersCtrl', ['$scope', 'User', function($scope, User){
+    .controller('UsersCtrl', ['$scope', 'Auth', function($scope, Auth){
         $scope.signup = function(){
-            User.signup({
+            Auth.signup({
                 first: $scope.first,
                 last: $scope.last,
                 email: $scope.email,
@@ -10,7 +10,7 @@ angular.module('ItemTrader')
             });
         };
         $scope.login = function(){
-            User.login({
+            Auth.login({
                 username: $scope.username,
                 password: $scope.password
             });

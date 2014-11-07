@@ -1,4 +1,4 @@
-angular.module('ItemTrader', ['ngRoute', 'ngResource', 'ngAnimate', 'Postman'])
+angular.module('ItemTrader', ['ngRoute', 'ngResource', 'ngAnimate', 'ngCookies', 'Postman'])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
         $locationProvider.html5Mode(true);
         $routeProvider
@@ -7,6 +7,7 @@ angular.module('ItemTrader', ['ngRoute', 'ngResource', 'ngAnimate', 'Postman'])
             .when('/how-it-works', {templateUrl: 'partials/howItWorks.html', controller: 'HowCtrl'})
             .when('/login', {templateUrl: 'partials/login.html', controller: 'UsersCtrl'})
             .when('/signup', {templateUrl: 'partials/signup.html', controller: 'UsersCtrl'})
-            .when('/profile/:id', {templateUrl: 'partials/profile.html', controller: 'ProfileCtrl'})
+            .when('/profile', {templateUrl: 'partials/profile.html', controller: 'ProfileCtrl'})
+            .when('/addItem', {templateUrl: 'partials/profile/addItem.html', controller: 'ProfileCtrl'})
             .otherwise({redirectTo: '/'});
     }]);

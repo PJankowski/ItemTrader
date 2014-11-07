@@ -1,3 +1,30 @@
 <div class="profile-content">
-    <h2>{{user.first}} {{user.last}}</h2>
+    <div class="container">
+        <div class="side-bar">
+            <ul class="profile-list">
+                <li><a href="/addItem">Add Item</a></li>
+                <li><a href="/profile">Settings</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="profile-sections">
+                <h3 class="profile-header">Recent Items</h3>
+                <a ng-repeat="item in items" href="/profile" class="profile-item">
+                    <div>
+                        <img src="/images/Products/{{item.image}}" alt="">
+                        <div class="under-image">
+                            <p>{{item.name}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="profile-sections">
+                <h3 class="profile-header">Pending Items</h3>
+                <a href="/profile" class="profile-item"></a>
+                <a href="/profile" class="profile-item"></a>
+                <a href="/profile" class="profile-item"></a>
+                <a href="/profile" class="profile-item"></a>
+            </div>
+        </div>
+    </div>
 </div>

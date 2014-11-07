@@ -1,0 +1,23 @@
+<div class="form-content">
+    <form class="item-form" ng-submit="addItem()">
+        <div class="login-header">
+            <h2>Add Item to Trade</h2>
+        </div>
+        <div class="group half">
+            <input class="full" type="text" ng-model="name" required>
+            <label>Name</label>
+        </div>
+        <div class="group half alpha">
+            <input type="text" class="full" ng-model="wanted" required>
+            <label>Item Wanted</label>
+        </div>
+        <div class="group full">
+            <textarea class="full" ng-model="description" required></textarea>
+            <label>Description</label>
+        </div>
+        <!--<div class="group full">
+            <input type="file">
+        </div>-->
+        <button class="full btn" type="submit">Login</button>
+    </form>
+</div>

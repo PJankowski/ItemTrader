@@ -1,4 +1,4 @@
 angular.module('ItemTrader')
-.controller('MainCtrl', ['$scope', '$routeParams', function($scope, $routeParams){
-        $scope.title = ''
+.controller('mainCtrl', ['$scope', 'Auth', function($scope, Auth){
+        //Auth.checkLoggedUser();
     }]);
