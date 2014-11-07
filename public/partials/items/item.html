@@ -1,0 +1,23 @@
+<div class="product-content">
+    <div class="container">
+        <div class="product-wrapper">
+            <div class="top-wrapper">
+                <div class="product-left">
+                    <img src="images/Products/{{item.image}}" alt="iPhone 5S">
+                </div>
+                <div class="product-right">
+                    <div class="quick-details">
+                        <h3 class="product-name">{{item.name}}</h3>
+                    </div>
+                    <div class="buy-section">
+                        <a href="#" class="btn trade-btn">Get this Item</a>
+                        <a href="javascript:void(0)" class="btn btn-danger" ng-click="removeItem(item._id)">Remove this item</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-description">
+                <p>{{item.description}}.</p>
+            </div>
+        </div>
+    </div>
+</div>

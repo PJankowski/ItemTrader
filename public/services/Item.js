@@ -5,7 +5,7 @@ angular.module('ItemTrader')
                 $http.post('/api/items', item)
                     .success(function(){
                         postman.success('Item added!');
-                        $location.path('/addItem');
+                        $location.path('/profile');
                     })
                     .error(function(reason){
                         postman.error('Error!', reason.message);

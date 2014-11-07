@@ -36,6 +36,16 @@ if(app.get('env') == 'development') {
 
 var User = mongoose.model('User', UserSchema);*/
 
+/*var ItemSchema = mongoose.Schema({
+    name: String,
+    description: String,
+    wanted: String,
+    image: String,
+    owner: String
+});
+
+var Item = mongoose.model('Item', ItemSchema);*/
+
 passport.serializeUser(function(user, done){
     done(null, user.id);
 });
@@ -108,10 +118,9 @@ app.get('/api/logout', function(req, res){
 });
 
 app.get('/api/user/profile/:id',function(req, res){
-    if(!req.user){
+    if(req.user == null){
         res.status(500).send({reason: 'Please log in first!'});
-    }else {
-        console.log(req.user);
+    }else{
         User.findById(req.params.id, function (err, user) {
             if (err) {
                 res.status(500).send(err);
@@ -145,6 +154,26 @@ app.get('/api/items', function(req, res){
             res.status(200).send(items);
         }
     })
+});
+
+app.get('/api/item/:id', function(req, res){
+    Item.findById(req.params.id, function(err, item){
+        if(err){
+            res.status(500).send({reason: err});
+        }else{
+            res.status(200).send(item);
+        }
+    });
+});
+
+app.delete('/api/item/:id', function(req, res){
+    Item.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.status(500).send({reason: err});
+        }else{
+            res.status(200).send('OK');
+        }
+    });
 });
 
 app.get('*', function(req, res) {

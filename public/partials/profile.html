@@ -9,7 +9,7 @@
         <div class="main-content">
             <div class="profile-sections">
                 <h3 class="profile-header">Recent Items</h3>
-                <a ng-repeat="item in items" href="/profile" class="profile-item">
+                <a ng-repeat="item in items" href="/item/{{item._id}}" class="profile-item">
                     <div>
                         <img src="/images/Products/{{item.image}}" alt="">
                         <div class="under-image">

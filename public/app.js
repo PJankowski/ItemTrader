@@ -9,5 +9,6 @@ angular.module('ItemTrader', ['ngRoute', 'ngResource', 'ngAnimate', 'ngCookies',
             .when('/signup', {templateUrl: 'partials/signup.html', controller: 'UsersCtrl'})
             .when('/profile', {templateUrl: 'partials/profile.html', controller: 'ProfileCtrl'})
             .when('/addItem', {templateUrl: 'partials/profile/addItem.html', controller: 'ProfileCtrl'})
+            .when('/item/:id', {templateUrl: 'partials/items/item.html', controller: 'ItemCtrl'})
             .otherwise({redirectTo: '/'});
     }]);
