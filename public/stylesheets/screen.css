@@ -383,13 +383,7 @@ ul.nav-right {
   float: left;
   margin-left: 0;
   margin-right: 0;
-  background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3), 2px 2px 3px rgba(0, 0, 0, 0.3), -2px 2px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3), 2px 2px 3px rgba(0, 0, 0, 0.3), -2px 2px 3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3), 2px 2px 3px rgba(0, 0, 0, 0.3), -2px 2px 3px rgba(0, 0, 0, 0.3);
-  padding: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .profile-content .profile-sections .profile-item {
   width: 23.72881%;
@@ -400,6 +394,11 @@ ul.nav-right {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   text-decoration: none;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3), 3px 3px 5px rgba(0, 0, 0, 0.3), -3px 3px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3), 3px 3px 5px rgba(0, 0, 0, 0.3), -3px 3px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3), 3px 3px 5px rgba(0, 0, 0, 0.3), -3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 .profile-content .profile-sections .profile-item:nth-child(5n) {
   margin-right: 0;
@@ -453,7 +452,7 @@ h3 {
 
 h3.profile-header {
   color: #3498db;
-  font-size: 24px;
+  font-size: 2em;
   font-family: 'Droid Serif', serif;
   padding-bottom: 10px;
 }
@@ -513,6 +512,12 @@ ul.nav-right li a:hover {
   font-family: 'Droid Serif', serif;
   letter-spacing: 1px;
   color: #fff;
+}
+
+.under-image p {
+  font-size: 1.6em;
+  font-weight: 400;
+  text-align: center;
 }
 
 /* Item Search Form */
